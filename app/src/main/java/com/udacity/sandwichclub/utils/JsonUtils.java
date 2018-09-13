@@ -36,13 +36,11 @@ public class JsonUtils {
             //Here we're calling "setAlsoKnownAs" method with attributes: "getJsonArrayList",
             // that had to be declared as a method bellow.
             //TODO: Why we use an Array here as opposed to String?
-            sandwich.setAlsoKnownAs(getJsonArrayAsList(rootObject.getJSONArray(VAL_AKA)));
+            sandwich.setAlsoKnownAs(getJsonArrayAsList(nameObject.getJSONArray(VAL_AKA)));
 
             sandwich.setPlaceOfOrigin(rootObject.getString(VAL_ORIGIN_PLACE));
 
             sandwich.setDescription(rootObject.getString(VAL_DESCRIPTION));
-
-            sandwich.setPlaceOfOrigin(rootObject.getString(VAL_ORIGIN_PLACE));
 
             sandwich.setImage(rootObject.getString(VAL_IMAGE));
 
