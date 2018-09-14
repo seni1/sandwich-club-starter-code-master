@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class JsonUtils {
 
-    //TODO: What's the variable "VAL_NAME" for?
+
     public static final String VAL_NAME = "name";
     public static final String VAL_MAIN_NAME = "mainName";
     public static final String VAL_AKA = "alsoKnownAs";
@@ -20,22 +20,17 @@ public class JsonUtils {
     public static final String VAL_IMAGE = "image";
 
     public static Sandwich parseSandwichJson(String json) {
-        //TODO: Why are we declaring the Sandwich object?
+
         Sandwich sandwich = new Sandwich();
 
         try {
-            //TODO: What's the rootObject, and why are we declaring it?
+
             JSONObject rootObject = new JSONObject(json);
 
-            //Here creating a JSON "nameObject"
             JSONObject nameObject = rootObject.getJSONObject(VAL_NAME);
 
-            //Here we're calling "setMainName" method from Sandwich.java class
-            // on the sandwich object just created.
             sandwich.setMainName(nameObject.getString(VAL_MAIN_NAME));
-            //Here we're calling "setAlsoKnownAs" method with attributes: "getJsonArrayList",
-            // that had to be declared as a method bellow.
-            //TODO: Why we use an Array here as opposed to String?
+
             sandwich.setAlsoKnownAs(getJsonArrayAsList(nameObject.getJSONArray(VAL_AKA)));
 
             sandwich.setPlaceOfOrigin(rootObject.getString(VAL_ORIGIN_PLACE));

@@ -15,8 +15,6 @@ public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
-
-    //TODO: Why declare as public and not private?
     public ImageView sandwichIv;
     public TextView descriptionTv;
     public TextView originTv;
@@ -57,7 +55,6 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        //TODO: Why is this method here, and not in the "populateUI" method?
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
@@ -71,11 +68,9 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    //TODO: Why only 2 attributes: description and origin get populated via this method?
     private void populateUI(Sandwich sandwich) {
         descriptionTv.setText(sandwich.getDescription());
         originTv.setText(sandwich.getPlaceOfOrigin());
-        //TODO:  Don't understand this "for" loops: I see that Arrays get set through loops, while Strings through setText - WHY!
 
         for (int i = 0; i < sandwich.getAlsoKnownAs().size(); i ++) {
             alsoKnownAs.append(sandwich.getAlsoKnownAs().get(i));
